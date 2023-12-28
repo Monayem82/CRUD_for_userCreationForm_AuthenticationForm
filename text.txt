@@ -1,0 +1,1 @@
+Read this Totall Project then you find the more information about django
