@@ -1,0 +1,26 @@
+{% extends 'common/indexUser.html' %}{% load static %}
+
+{% block content %} 
+<main class="container">
+    <section>
+        <h1 class="text-center">Who i am</h1>
+    </section>
+    <section>
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p>{{error}}</p>
+            {% endfor %}
+            {% endif %}
+
+
+            {% for frm in form %}
+                {{frm.label_tag}} {{frm}} {{frm.errors | striptags}}<br><br>
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+</main>
+{% endblock content %}

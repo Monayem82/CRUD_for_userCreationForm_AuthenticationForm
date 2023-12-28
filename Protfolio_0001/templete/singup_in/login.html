@@ -1,0 +1,27 @@
+{% extends 'common/index.html' %}{% load static %}
+{% block css %}
+
+{% endblock css %}
+{% block title %} Please Login {% endblock title %}
+
+{% block content %}
+    <main class="container mt-2">
+        <section>
+            <h1 class="text-center">Log in</h1>
+            <div>
+                <form action="" method="POST" novalidate>
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <p>{{error}}</p>
+                        {% endfor %}
+                    {% endif %}
+                    {% for frm in form %}
+                        {{ frm.label_tag }} {{frm}} {{frm.errors | striptags}} <br><br>
+                    {% endfor %}
+                    <button class="w-100 mt-2 btn btn-outline-success" type="submit">Log in</button>
+                </form>
+            </div>
+        </section>
+    </main>
+{% endblock content %}

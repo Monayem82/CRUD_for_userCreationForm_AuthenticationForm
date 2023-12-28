@@ -1,0 +1,73 @@
+{% extends 'common/index.html' %}
+
+{% block css %}
+    <style>
+        table{
+            border: 2px solid salmon;
+            width: 100%;
+        }
+        table tr th{
+            border: 2px solid salmon;
+        }
+        table tr td{
+            border: 2px solid salmon;
+        }
+    </style>
+{% endblock css %}
+
+{% block content %}
+
+    <main class="container" style="background-color: antiquewhite;">
+        <section style="width: 70%;margin: auto;background-color: darkgray;">
+            {{data}}
+            <form action="" method="POST" novalidate>
+                <h1 class="text-center">Add Your Comment</h1>
+                {% csrf_token %}
+                <tr>
+    <th><label for="id_name">Name:</label></th>
+    <td>
+      
+      <input type="text" name="name" value="{{data.name}}" class="form-control" required id="id_name">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_email">Email:</label></th>
+    <td>
+      
+      <input type="email" name="email" value="{{data.email}}" class="form-control" maxlength="320" required id="id_email">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_topic_name">Topic name:</label></th>
+    <td>
+      
+      <input type="text" name="topic_name" value="{{data.topic_name}}" class="form-control" required id="id_topic_name">
+      
+      
+    </td>
+  </tr>
+
+  <tr>
+    <th><label for="id_describe">Describe:</label></th>
+    <td>
+      
+      <textarea name="describe" cols="40" rows="10" class="form-control" required id="id_describe">{{data.describe}}</textarea>
+      
+value="{{data.describe}}"
+        
+      
+    </td>
+  </tr>
+                <br>
+                <input type="submit" value="Save Now">
+            </form>
+        </section>
+    </main>
+
+{% endblock content %}

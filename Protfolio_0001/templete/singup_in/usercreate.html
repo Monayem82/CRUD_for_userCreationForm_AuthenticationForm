@@ -1,0 +1,36 @@
+{% extends 'common/index.html' %}{% load static %}
+{% block css %}
+<style>
+    #id_password1{
+        color: aqua;
+    }
+</style>
+{% endblock css %}
+{% block title %} Create User {% endblock title %}
+
+{% block content %}
+    <main class="">
+        <br>
+       <section class="mb-2 bg-success-subtle">
+            <h1 class="text-center">Create User </h1>
+       </section>
+       <section class="mt-4 container">
+            <form action="" method="POST" novalidate>
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                <p>{{error}}</p>
+                {% endfor %}
+                {% endif %}
+
+
+                {% for frm in form %}
+                    {{frm.label_tag}} {{frm}} {{frm.errors | striptags}}<br><br>
+                {% endfor %}
+                
+                <button class="w-100 mt-2 btn btn-outline-success" type="submit">Submit</button>
+            </form>
+            
+       </section>
+    </main>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'common/index.html' %}{% load static %}
+{% block css %} 
+    <link rel="stylesheet" href="{% static  'css/home.css' %}">
+    <style>
+        main{
+            background: url('{% static "images/home/8.jpg" %}') no-repeat;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top;
+            background-attachment: fixed;
+        }
+    </style>
+{% endblock css %}
+{% block title %} welcome to home {% endblock title %}
+
+{% block content %}
+    <main class="userhome">
+        <br>
+        <section class="container mt-2 d-flex justify-content-center align-items-center">
+            <div class="">
+                <h1 class="text-center text-primary fst-italic fw-bold">Welcome Our Blog</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius reiciendis tempora sunt adipisci unde doloremque, voluptates repudiandae,<br> consequatur est esse nobis! At consequuntur, perferendis ab ducimus quos non sit expedita!</p>
+            </div>
+        </section>
+    </main>
+{% endblock content %}

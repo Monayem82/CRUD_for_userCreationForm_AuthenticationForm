@@ -1,0 +1,51 @@
+{% extends 'common/index.html' %}{% load static %}
+{% block css %}
+    <style>
+        table{
+            border: 2px dotted;
+            padding: 5px;
+        }
+        table tr{
+            border: 2px solid;
+            
+        }
+    </style>
+{% endblock css %}
+{% block title %} welcome to your Profile {% endblock title %}
+
+{% block content %}
+    <main class="container mt-2">
+        <h1 class="text-center">Show all joins</h1>
+        <section>
+            <div>
+                <table class="container">
+                    <tr>
+                        <th>NO .</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Dep code</th>
+                        <th>password</th>
+                        <th>actions</th>
+                    </tr>
+                    {% for d in data %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{d.name}}</td>
+                            <td>{{d.email}}</td>
+                            <td>{{d.department}}</td>
+                            {% if d.dep_code == 40 %}
+                            <td style="background-color: aqua;">{{d.dep_code}}</td>
+                            {% else %}
+                            <td>{{d.dep_code}}</td>
+                            {% endif %}
+                            <td>{{d.password}}</td>
+                            <td><a href="">Edit</a> | <a href="/join/delete/{{d.id}}/">delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                
+            </div>
+        </section>
+    </main>
+{% endblock content %}

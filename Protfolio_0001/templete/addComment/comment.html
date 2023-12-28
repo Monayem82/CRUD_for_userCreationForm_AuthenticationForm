@@ -1,0 +1,55 @@
+{% extends 'common/index.html' %}
+
+{% block css %}
+    <style>
+        table{
+            border: 2px solid salmon;
+            width: 100%;
+        }
+        table tr th{
+            border: 2px solid salmon;
+        }
+        table tr td{
+            border: 2px solid salmon;
+        }
+    </style>
+{% endblock css %}
+
+{% block content %}
+
+    <main class="container" style="background-color: antiquewhite;">
+        <section style="width: 70%;margin: auto;background-color: darkgray;">
+            <form action="" method="POST" novalidate>
+                <h1 class="text-center">Add Your Comment</h1>
+                {% csrf_token %}
+                {{form}}
+                <br>
+                <input type="submit" value="Post Now">
+            </form>
+        </section>
+        <section>
+            <h1>Adding our Comment</h1>
+            <table>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Topic name</th>
+                    <th>Describsion</th>
+                    <th>Actions</th>
+                </tr>
+                {% for eachData in data %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{eachData.name}}</td>
+                    <td>{{eachData.email}}</td>
+                    <td>{{eachData.topic_name}}</td>
+                    <td>{{eachData.describe}}</td>
+                    <td><a href="/comment/update/{{eachData.id}}/">Edit</a> | <a href="/comment/delete/{{eachData.id}}/">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </main>
+
+{% endblock content %}

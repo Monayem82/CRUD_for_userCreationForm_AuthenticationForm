@@ -1,0 +1,21 @@
+{% extends 'common/indexUser.html' %}{% load static %}
+{% block css %}
+
+{% endblock css %}
+{% block title %} welcome to your Profile {% endblock title %}
+
+{% block content %}
+    <main class="container mt-2">
+        <h1 class="text-center">Successfully change password done</h1>
+
+        <section>
+            {% block subcontent %} 
+        
+            {% endblock subcontent %}
+            
+            <!-- <a href="{% url 'logout_set' %}">Log Out</a> -->
+            <div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}

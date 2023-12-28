@@ -1,0 +1,38 @@
+{% extends 'common/indexUser.html' %}{% load static %}
+{% block css %}
+
+{% endblock css %}
+{% block title %} welcome to your Profile {% endblock title %}
+
+{% block content %}
+    <main class="container mt-2">
+        <h1 class="text-center">wellcome your Profile</h1>
+        <section>
+            <div>
+                <h1>change Profile information</h1>
+                <form action="" method="POST" novalidate>
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                    <p>{{error}}</p>
+                    {% endfor %}
+                    {% endif %}
+        
+        
+                    {% for frm in form %}
+                        {{frm.label_tag}} {{frm}} {{frm.errors | striptags}}<br><br>
+                    {% endfor %}
+                    <input type="submit" value="Save">
+                </form>
+                <p><a href="{% url 'suc' %}">back</a></p>
+            </div>
+        </section>
+        <section>
+            
+
+            <a href="{% url 'logout_set' %}">Log Out</a>
+            <div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}

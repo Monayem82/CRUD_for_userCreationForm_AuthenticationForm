@@ -1,0 +1,29 @@
+{% extends 'common/indexUser.html' %}{% load static %}
+{% block css %}
+
+{% endblock css %}
+{% block title %} welcome to your Profile {% endblock title %}
+
+{% block content %}
+    <main class="container mt-2">
+        <h1 class="text-center">wellcome your Profile</h1>
+        <section>
+            <div>
+                
+                    {% for frm in form %}
+                        {{frm.label_tag}} {{frm.value}}<br><br>
+                    {% endfor %}
+            </div>
+            <div>
+                <a class="" href="{% url 'changeInformation' %}">Change Profile information</a>
+            </div>
+        </section>
+        <section>
+            
+
+            <a href="{% url 'logout_set' %}">Log Out</a>
+            <div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}
